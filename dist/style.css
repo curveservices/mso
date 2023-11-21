@@ -78,14 +78,19 @@ nav {
 
 .home-image {
     width: 100%;
-    height: 60vh;
+    
+}
+
+.top-container {
+    background-color: black;
 }
 
 .welcome-container {
     position: relative;
     margin-top: -220px;
+    margin-bottom: 0em;
     width: 100%;
-    padding: 5rem 0;
+    padding: 0rem 0;
     background: var(--welcome-background);
     color: whitesmoke;
     text-align: center;
@@ -109,11 +114,20 @@ nav {
     font-weight: bolder;
     cursor: pointer;
 }
-/* Concerts */
+
+#back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    cursor: pointer;
+}
+
 .season-container {
     margin: 0em 5em 2em 5em;
     padding: 0em 0em; 
-    line-height: 1.5em;    
+    line-height: 1.5em; 
 }
 
 .image-brian {
@@ -123,6 +137,11 @@ nav {
     margin-right: 5em;
     padding: 1em;
     border-radius: 50%;
+}
+
+.about-us {
+    background-color: black;
+    color: whitesmoke;
 }
 
 .events {
@@ -222,14 +241,10 @@ li, ul {
         color: whitesmoke;
     }
     
-    .tab:focus {
-        background-color: black;
-        color: whitesmoke;
-    }
-    
     .welcome-container {
         margin-top: -375px;
-        padding: 4rem 0;
+        margin-bottom: 5em;
+        padding: 5rem 0;
     }
     
     .welcome-container :nth-child(1) {
@@ -237,7 +252,7 @@ li, ul {
     }
 
     .image-brian {
-        margin: 0 5em 2em 5em;
+        margin: 2em 5em;
         width: 350px;
         height: 350px;
     }
@@ -267,6 +282,10 @@ li, ul {
     .events {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(400px, auto));
+    }
+
+    .card {
+        height: 45em;
     }
     
 }

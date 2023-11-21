@@ -4,7 +4,7 @@ import whatsOn from './whats-on';
 
 function initialLoad() {
     // createHomePage();
-    whatsOn()
+    createHomePage()
     createNav();
 }
 

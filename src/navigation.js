@@ -25,11 +25,32 @@ const createNav = () => {
         createHomePage();
     })
 
-    document.getElementById('concerts') .addEventListener('click', () => {
+    document.getElementById('concerts').addEventListener('click', () => {
         clearPage();
         whatsOn();
     });
 
+    document.getElementById('aboutUs').addEventListener('click', () => {
+        clearPage();
+        createHomePage();
+    })
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const button = document.getElementById('back-to-top');
+    
+        window.onscroll = () => {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                button.style.display = 'block';
+            } else {
+                button.style.display = 'none';
+            }
+        };
+    
+        button.onclick = () => {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        };
+    });
     
 
     const clearPage = () => {

@@ -1,4 +1,5 @@
 const whatsOn = () => {
+
     const content = document.getElementById('content');
     
     const pageContent = document.createElement('div');
@@ -99,6 +100,7 @@ const whatsOn = () => {
         }
     }
 }
+
 
 function createEventCard(imageSrc, title, details, description) {
     const card = document.createElement('div');
