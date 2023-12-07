@@ -9,23 +9,29 @@
     <title>MSO</title>
 </head>
 <body>
-    <nav id="nav">
+    <nav aria-label="main navigation">
+        
         <div class="nav-container">
-            <img id="logo" src="../dist/assets/mso.png" alt="MSO">
-            <i class="fa-solid fa-bars drop-button"></i>
+            <button><img id="logo" src="../dist/assets/mso.png" alt="Maidstone syphony ochestra"></button>
+            <button aria-label="close menu"><i class="fa-solid fa-bars drop-button"></i></button>
         </div>
         <div class="navigation dropdown-content">
-            <a id="concerts" href="#" class="tab">Concerts</a>
-            <a id="aboutUs" href="#about-us" class="tab">About Us</a>
-            <a id="players" href="#players" class="tab">Players</a>
-            <a id="friends" href="#friends" class="tab">Friends</a>
-            <a id="tickets" href="#tickets" class="tab">Tickets</a>
-            <a id="contact-us" href="#contact-us" class="tab">Contact Us</a>
+            <button ><a id="concerts" href="#" class="tab">Concerts</a></button>
+            <button ><a id="aboutUs" href="#" class="tab">About Us</a></button>
+            <button ><a id="players" href="#players" class="tab">Players</a></button>
+            <!-- <button ><a id="friends" href="#friends" class="tab">Friends</a></button> -->
+            <button ><a id="tickets" href="#tickets" class="tab">Tickets</a></button>
+            <button ><a id="contact-us" href="#contact-us" class="tab">Contact Us</a></button>
         </div>
-       
-    </nav>
-    <div id="content"></div>
 
+    </nav>
+
+    <main id="content">
+        <button id="back-to-top"><i class="fa-solid fa-arrow-up" alt="back to top"></i></button>
+    </main>
+    
+    <footer><a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a></footer>
     <script src="main.js"></script>
 </body>
 </html>

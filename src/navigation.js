@@ -1,3 +1,4 @@
+import about from "./about";
 import createHomePage from "./homepage";
 import whatsOn from "./whats-on";
 
@@ -32,7 +33,7 @@ const createNav = () => {
 
     document.getElementById('aboutUs').addEventListener('click', () => {
         clearPage();
-        createHomePage();
+        about();
     })
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -59,7 +60,19 @@ const createNav = () => {
         if (pageContent) {
             mainContent.removeChild(pageContent)
         };
+    };
+
+    const buttons = document.querySelectorAll('.tab');
+    function nameAlert(e) {
+        if (e.target === 'click' || e.key === '' || e.key === 'Enter') {
+            alert(e.target.textContent)
+        }
     }
+
+    buttons.forEach(button => {
+        button.addEventListener('click', nameAlert)
+        button.addEventListener('keydown', nameAlert)
+    })
 
 }
 

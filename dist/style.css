@@ -3,10 +3,11 @@
     --welcome-background: linear-gradient(
         180deg,
         rgba(194, 194, 194, 0),
-        rgb(106, 106, 106),
         rgb(51, 51, 51),
         black
     );
+    --border: border: 1px solid black;
+    --box-shadow:10px 16px 8px 0px rgba(0, 0, 0, 0.4);
 }
 
 *,
@@ -20,12 +21,30 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+h1 {
+    font-size: 1.5em;
+}
+
+h2 {
+    font-size: 1.3em;
+}
+
+button {
+    background: none;
+    color: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
 nav {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
-    height: 4.25rem;
-    padding: 2rem;
+    height: 4rem;
+    padding: 0rem;
 }
 
 .navigation {
@@ -34,7 +53,6 @@ nav {
 
 .nav-container {
     display: flex;
-    justify-content: space-around;
     gap: 2rem;
 }
 
@@ -46,13 +64,15 @@ nav {
 }
 
 .mobile-menu {
-    display: block;
-    margin-top: 20.5em;
+    display: flex;
+    flex-direction: column;
+    margin-top: 17.5em;
     position: absolute;
     background: #bcbcbc;
     min-width: 200px;
-    max-height: 600px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    height: auto;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
     animation: expand 500ms ease-in-out;
     transform-origin: top;
 }
@@ -85,52 +105,62 @@ nav {
 
 .dropdown-content a:hover {
     background: rgb(66, 66, 66);
-    color: whitesmoke;
+    color: white;
 }
 
 #logo {
-    height: 50px;
-    width: 200px;
+    background-color: white;
+    max-width: 200px;
     margin-left: 1rem;
 }
 
-.home-image {
+.top-container {
     width: 100%;
-    
+    max-height: auto;
+
 }
 
-.top-container {
+.home-image {
+    height: 100vh;
+    background: url(https://www.kentonline.co.uk/_media/img/720x0/9NUDHCK8JVLXLKLLCAQA.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
     background-color: black;
+    border: 3px solid var(--MSO-red);
+    border-bottom: none;
 }
 
 .welcome-container {
     position: relative;
-    margin-top: -220px;
+    margin-top: -375px;
     margin-bottom: 0em;
-    width: 100%;
-    padding: 0rem 0;
+    padding: 5rem 0;
+    max-width: 100%;
+    height: inherit;
     background: var(--welcome-background);
-    color: whitesmoke;
+    color: white;
     text-align: center;
     letter-spacing: 2px;
     line-height: 1.5em;
 }
 
-.welcome-container :nth-child(1) {
-    padding-top: 75px;
-}
-
-.browser-btn {
-    margin-top: 1em;
-    height: 50px;
-    width: 150px;
-    padding: 0.33em 1.25em;
-    border-radius: 0.25em;
+.browser-btn,
+.browser-btn a {
+    margin: 2.5em 0em;
+    max-width: 150px;
+    height: auto;
+    border-radius: 10px;
     border: 2px solid var(--MSO-red);
     background-color: var(--MSO-red);
+    text-decoration: none;
     color: whitesmoke;
     font-weight: bolder;
     cursor: pointer;
+}
+
+.browser-btn a:hover {
+    color: none;
+    background-color: var(--MSO-red);
 }
 
 #back-to-top {
@@ -140,38 +170,48 @@ nav {
     right: 20px;
     padding: 10px;
     cursor: pointer;
+    border-radius: 100%;
+    width: 40px;
+    height: auto;
+    opacity: 0.8;
+    box-shadow: var(--box-shadow);
+    background-color: var(--MSO-red);
 }
 
 .season-container {
     margin: 0em 5em 2em 5em;
-    padding: 0em 0em; 
-    line-height: 1.5em; 
+    padding: 2em 0em; 
+    line-height: 2em;
 }
 
 .image-brian {
     float: left;
-    height: 250px;
-    width: 250px;
+    height: auto;
+    max-width: 250px;
     margin-right: 5em;
     padding: 1em;
     border-radius: 50%;
 }
 
 .about-us {
-    background-color: black;
-    color: whitesmoke;
+    background-color: whitesmoke;
+    color: black;
+    text-align: center;
+    padding: 1em;
 }
+
+
+.event-container {background-color: whitesmoke;}
 
 .events {
     display: grid;
-    padding: 2em;
-    gap: 2em;
-    background-color: black;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    /* gap: 10px; */
+    margin-top: 1em;
 }
 
 .event-main-title {
-    background-color: black;
-    color: whitesmoke;
+    color: black;
     text-align: center;
     padding: 1em;
 }
@@ -181,12 +221,31 @@ nav {
     flex-flow: column;
     align-content: center;
     align-items: center;
-    padding: 1em;
-    background-color: whitesmoke;
-    color: black;
+    height: auto;
+    padding: 2rem;
+    margin: 1rem;
+    background-color: #545454;
+    color: white;
     border-radius: 10px;
-    border: 1px solid var(--MSO-red);
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+    animation: slide 800ms ease-in-out;
 }
+
+@keyframes slide {
+    0% {
+      transform: scaleY(0);
+      transform: scaleX(0);
+    }
+    50% {
+      transform: scaleY(1.05);
+      transform: scaleX(1.05);
+    }
+    100% {
+      transform: scaleY(1);
+      transform: scaleX(1);
+    }
+  }
 
 .event-title {
     text-align: center;
@@ -194,19 +253,21 @@ nav {
 }
 
 .player-image {
-    height: 250px;
-    width: 200px;
+    width: 175px;
+    height: 200px;
     border: 1px solid black;
     border-radius: 10%;
+    background-position: left;
 }
 
-.first::first-letter {
+.first::first-letter,
+.about-first::first-letter {
     font-size: 200%;
     color: var(--MSO-red);
 }
 
 .first {
-    max-height: 100px;
+    max-height: 150px;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
 }
@@ -214,7 +275,8 @@ nav {
 .read-more-btn {
     float: right;
     cursor: pointer;
-    color: rgb(34, 34, 255);
+    color: #187cff;
+    font-weight: bold;
 }
 
 li, ul {
@@ -223,7 +285,15 @@ li, ul {
     padding: 0;
 }
 
-@media (min-width: 930px){
+@media (min-width: 950px){
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
     
     .navigation {
         display: block;
@@ -238,14 +308,13 @@ li, ul {
         text-align: center;
         text-decoration: none;
         transition: all 0.5s ease-out;
-      }
+    }
       
       a:hover,
       a:focus {
         background-color: #fff;
         color: #333;
-      }
-    
+    }
 
     .fa-bars {
         display: none !important;
@@ -258,11 +327,6 @@ li, ul {
     #logo {
         margin-left: 2rem;
     }
-
-    .home-image {
-        width: 100%;
-        height: 100vh;
-    }
     
     .tab {
         border: none;
@@ -274,32 +338,37 @@ li, ul {
     }
     
     .tab:hover {
-        background-color: black !important;
+        background-color: black;
         color: whitesmoke;
     }
-    
-    .welcome-container {
-        margin-top: -375px;
-        margin-bottom: 5em;
-        padding: 5rem 0;
+
+    .tab:focus {
+        background-color: black;
+        color: whitesmoke;
+        outline: none;
+        border: none;
+    }
+
+    .welcome-text {
+        animation: slidein 2s ease;
     }
     
-    .welcome-container :nth-child(1) {
-        padding-top: 75px;
-    }
+    @keyframes slidein {
+        0% {
+          margin-left: 100%;
+          width: 300%;
+        }
+      
+        100% {
+          margin-left: 0%;
+          width: 100%;
+        }
+      }
 
     .image-brian {
         margin: 2em 5em;
-        width: 350px;
-        height: 350px;
-    }
-    .season-container {
-        height: 100vh;
-        margin: 0em 5em 2em 5em;
-        padding: 2em 0em; 
-        line-height: 2em;
-        background-color: var(--welcome-background);
-        
+        max-width: 350px;
+        height: auto;
     }
 
     .content p {
@@ -309,6 +378,7 @@ li, ul {
     }
 
     .first {
+        max-height: 800px;
         overflow: visible;
     }
 
@@ -318,11 +388,11 @@ li, ul {
 
     .events {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, auto));
+        grid-template-columns: repeat(auto-fill, minmax(400px, 2fr));
     }
 
     .card {
-        height: 45em;
+        max-height: 800px;
     }
-    
+
 }

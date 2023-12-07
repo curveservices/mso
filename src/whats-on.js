@@ -16,7 +16,7 @@ const whatsOn = () => {
     events.classList.add('events');
 
     const card1 = createEventCard(
-        '../dist/assets/ben-baker.png',
+        '../dist/assets/benjaminbaker.png',
         'Benjamin Baker',
         ['Holst - The Perfect Fool', 'Coleridge-Taylor - Violin Concerto', 'Vaughan Williams - The Lark Ascending', 'Elgar - Falstaff'],
         `
@@ -98,36 +98,36 @@ const whatsOn = () => {
             content.style.maxHeight = `${content.scrollHeight}px`;
             btn.textContent = "Read Less";
         }
-    }
-}
+    };
 
+    function createEventCard(imageSrc, title, details, description) {
+        const card = document.createElement('article');
+        card.classList.add('card');
 
-function createEventCard(imageSrc, title, details, description) {
-    const card = document.createElement('div');
-    card.classList.add('card');
+        const image = document.createElement('img');
+        image.classList.add('player-image');
+        image.src = imageSrc;
+        image.setAttribute('alt', `${title}`, 'srcset')
+        card.appendChild(image);
 
-    const image = document.createElement('img');
-    image.classList.add('player-image');
-    image.src = imageSrc;
-    card.appendChild(image);
+        const eventDetails = document.createElement('div');
+        eventDetails.classList.add('event-details');
+        eventDetails.innerHTML = `
+            <h2 class="event-title">${title}</h2>
+            <br>
+            <ul>
+                ${details.map(detail => `<li>${detail}</li>`).join('')}
+            </ul>
+            <br>
+                <p class="first">
+                    ${description}
+                </p>
+                <p class="read-more-btn">Read More</p>
+                `;
+        card.appendChild(eventDetails);
 
-    const eventDetails = document.createElement('div');
-    eventDetails.classList.add('event-details');
-    eventDetails.innerHTML = `
-        <h2 class="event-title">${title}</h2>
-        <ul>
-            ${details.map(detail => `<li>${detail}</li>`).join('')}
-        </ul>
-        <br>
-        <section>
-            <p class="first">
-                ${description}
-            </p>
-            <p class="read-more-btn">Read More</p>
-        </section>`;
-    card.appendChild(eventDetails);
-
-    return card;
+        return card;
+    };
 }
 
 export default whatsOn;
