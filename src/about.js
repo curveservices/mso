@@ -7,17 +7,23 @@ const about = () => {
     aboutUs.classList.add('about-us');
     aboutUs.setAttribute('id', 'about-us');
     aboutUs.innerHTML = `
-    <h1 class="aboutUs-text">About Us</h1>
-    <p class="about-first aboutUs-text">
-    Under the direction of its acclaimed and popular conductor, Brian Wright, Maidstone Symphony Orchestra is regarded as one of the UK's finest "community" orchestras.
-    It was formed in 1910 as Maidstone Orchestral Society, still the title of the concert promoting organisation.</p>
-    <br>
-    <p>Today MSO is a superbly well-balanced mix of local professionals and ex-professionals, music teachers and excellent amateur players who come together regularly on a voluntary basis to produce concerts of a professional standard. This entails great commitment by the players, many of whom travel from all over Kent, and beyond, to attend MSO's weekly Thursday evening rehearsals.
-    The MOS is a registered charity number 1163384.
-    </p>`;
+    <div class="text-container">
+        <section class="intro">
+            <h1 class="main-title">About Us</h1>
+            
+            <p class="first aboutUs-text">
+            Under the direction of its acclaimed and popular conductor, Brian Wright, Maidstone Symphony Orchestra is regarded as one of the UK's finest "community" orchestras.
+            It was formed in 1910 as Maidstone Orchestral Society, still the title of the concert promoting organisation.
+            Today MSO is a superbly well-balanced mix of local professionals and ex-professionals, music teachers and excellent amateur players who come together regularly on a voluntary basis to produce concerts of a professional standard. This entails great commitment by the players, many of whom travel from all over Kent, and beyond, to attend MSO's weekly Thursday evening rehearsals.
+            The MOS is a registered charity number 1163384.
+            </p>
+            <p class="read-more-btn" id="readMoreBtn">Read More</p>
+        </section>
+    </div>`;
 
     const events = document.createElement('div');
-    events.classList.add('events');
+    events.classList.add("events", "about-image");
+    
 
     const card1 = createPeopleCard(
         '../dist/assets/cconductor.png',
@@ -48,15 +54,22 @@ const about = () => {
         'SUBSCRIBER REPRESENTATIVES -Peter Hart, Richard Ashby', 'CO-OPTED MEMBERS - John Lill CBE (President) Janet Ash (Vice-President) David King (Vice-President) Steve Migden (Vice-President) Brian Wright (Conductor & Music Director)']
     );
 
-    content.appendChild(pageContent)
+    content.appendChild(pageContent);
     pageContent.appendChild(aboutUs);
-    aboutUs.appendChild(events)
+    aboutUs.appendChild(events);
 
     events.appendChild(card1);
     events.appendChild(card2);
-    events.appendChild(card3)
+    events.appendChild(card3);
 
     events.addEventListener("click", function (event) {
+        const target = event.target;
+        if (target.classList.contains("read-more-btn")) {
+            toggleReadMore(target.previousElementSibling);
+        }
+    });
+
+    document.querySelector(".intro").addEventListener("click", function (event) {
         const target = event.target;
         if (target.classList.contains("read-more-btn")) {
             toggleReadMore(target.previousElementSibling);
